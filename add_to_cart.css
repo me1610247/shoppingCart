@@ -1,0 +1,267 @@
+/* add_to_cart.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  .shopping {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .shopping img {
+    width: 20px;
+    margin-right: 5px;
+  }
+  
+  .shopping:hover {
+    transform: scale(1.1);
+  }
+  
+  .quantity {
+    background-color: #ff5454;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 50%;
+  }
+  
+  .list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .item {
+    background-color: #f5f5f5;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .item:hover {
+    transform: scale(1.05);
+  }
+  
+  .item img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .item .title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .item .price {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
+  }
+  
+  .item button {
+    background-color: #ff5454;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .item button:hover {
+    background-color: #ff3333;
+  }
+  
+  .card {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 400px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+    z-index: 999;
+    overflow-y: auto;
+  }
+  
+  .card.open {
+    right: 0;
+  }
+  
+  .card h1 {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px;
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .listCard {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .listCard li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .listCard li:last-child {
+    border-bottom: none;
+  }
+  
+  .listCard img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .checkOut {
+    padding: 20px;
+  }
+  
+  .total {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .closeShopping {
+    background-color: #ff5454;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .closeShopping:hover {
+    background-color: #ff3333;
+  }
+  
+  .orderNow {
+    background-color: #ff5454;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .orderNow:hover {
+    background-color: #ff3333;
+  }
+  
+  /* Animations */
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  /* Apply animations to elements */
+  
+  .card {
+    animation: slideOut 0.3s forwards;
+  }
+  
+  .card.open {
+    animation: slideIn 0.3s forwards;
+  }
+  
+  .listCard li {
+    animation: fadeIn 0.3s forwards;
+  }
+  
+  .listCard li:last-child {
+    animation: fadeIn 0.3s forwards;
+  }
+  
+  .checkOut {
+    animation: fadeIn 0.3s forwards;
+  }
+  
+  .closeShopping {
+    animation: fadeIn 0.3s forwards;
+  }
+  
+  .orderNow {
+    animation: fadeIn 0.3s forwards;
+  }
